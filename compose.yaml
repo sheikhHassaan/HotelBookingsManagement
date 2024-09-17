@@ -1,7 +1,5 @@
-version: '3.8'
-
 services:
-  db:
+  postgres_db:
     image: postgres:15
     container_name: hotel_bookings_management_db
     environment:
