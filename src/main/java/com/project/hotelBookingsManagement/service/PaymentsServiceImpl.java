@@ -51,7 +51,7 @@ public class PaymentsServiceImpl {
             configPayment.setPaymentAmount(newPayment.getPaymentAmount());
         }
         if (StringUtils.isNotEmpty(newPayment.getPaymentMethod())) {
-            configPayment.setPaymentId(newPayment.getPaymentMethod());
+            configPayment.setPaymentMethod(newPayment.getPaymentMethod());
         }
         return configPayment;
     }

@@ -45,7 +45,7 @@ public class RoomsServiceImpl {
             configRoom.setHotelId(newRoom.getHotelId());
         }
         if (StringUtils.isNotEmpty(newRoom.getRoomNumber())) {
-            configRoom.setRoomId(newRoom.getRoomNumber());
+            configRoom.setRoomNumber(newRoom.getRoomNumber());
         }
         if (StringUtils.isNotEmpty(newRoom.getRoomType())) {
             configRoom.setRoomType(newRoom.getRoomType());
