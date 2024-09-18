@@ -8,13 +8,14 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.Data;
+import org.hibernate.annotations.UuidGenerator;
 
 @Entity
 @Data
 @Table(name = "hotels")
 public class Hotel {
 
-    @Id
+    @Id @UuidGenerator
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "hotel_id")
     @JsonProperty("hotel_id")

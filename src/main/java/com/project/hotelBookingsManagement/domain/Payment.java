@@ -8,6 +8,8 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.Data;
+import org.hibernate.annotations.UuidGenerator;
+
 import java.util.Date;
 
 @Entity
@@ -15,7 +17,7 @@ import java.util.Date;
 @Table(name = "payments")
 public class Payment {
 
-    @Id
+    @Id @UuidGenerator
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "payment_id")
     @JsonProperty("payment_id")
