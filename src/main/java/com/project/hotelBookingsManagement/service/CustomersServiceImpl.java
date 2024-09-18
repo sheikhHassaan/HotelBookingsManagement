@@ -24,16 +24,16 @@ public class CustomersServiceImpl {
         return optionalCustomer.orElse(null);
     }
 
-    public Customer addCustomer(Customer customer) {
-        return customerRepository.save(customer);
+    public void addCustomer(Customer customer) {
+        customerRepository.save(customer);
     }
 
-    public Customer updateCustomer(Customer customer) {
+    public void updateCustomer(Customer customer) {
         Customer configCustomer = customerRepository.findById(customer.getCustomerId()).orElse(null);
         if (configCustomer != null) {
             customer = mergeCustomer(configCustomer, customer);
         }
-        return customerRepository.save(customer);
+        customerRepository.save(customer);
     }
 
     public void deleteCustomer(String customerId) {
