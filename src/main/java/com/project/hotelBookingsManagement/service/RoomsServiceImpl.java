@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class RoomsService {
+public class RoomsServiceImpl {
 
     @Autowired
     RoomRepository roomRepository;
