@@ -1,57 +1,55 @@
 package com.project.hotelBookingsManagement.domain;
 
-import com.google.gson.annotations.SerializedName;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
 @Entity
-@Getter
-@Setter
+@Data
 @Table(name = "hotels")
 public class Hotel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "hotel_id")
-    @SerializedName("hotel_id")
+    @JsonProperty("hotel_id")
     private String hotelId;
 
     @Column(name = "hotel_name")
-    @SerializedName("hotel_name")
+    @JsonProperty("hotel_name")
     private String hotelName;
 
     @Column(name = "address")
-    @SerializedName("address")
+    @JsonProperty("address")
     private String address;
 
     @Column(name = "city")
-    @SerializedName("city")
+    @JsonProperty("city")
     private String city;
 
     @Column(name = "state")
-    @SerializedName("state")
+    @JsonProperty("state")
     private String state;
 
     @Column(name = "country")
-    @SerializedName("country")
+    @JsonProperty("country")
     private String country;
 
     @Column(name = "postal_code")
-    @SerializedName("postal_code")
+    @JsonProperty("postal_code")
     private String postalCode;
 
     @Column(name = "phone_number")
-    @SerializedName("phone_number")
+    @JsonProperty("phone_number")
     private String phoneNumber;
 
     @Column(name = "email")
-    @SerializedName("email")
+    @JsonProperty("email")
     private String email;
 
 }

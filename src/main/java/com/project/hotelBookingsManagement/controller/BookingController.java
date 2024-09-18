@@ -28,8 +28,8 @@ public class BookingController {
     }
 
     @GetMapping("/get/{booking_id}")
-    public Booking getBooking(@PathVariable("booking_id") String booking_id) {
-        return bookingService.getBooking(booking_id);
+    public Booking getBooking(@PathVariable("booking_id") String bookingId) {
+        return bookingService.getBooking(bookingId);
     }
 
     @PostMapping("/add")

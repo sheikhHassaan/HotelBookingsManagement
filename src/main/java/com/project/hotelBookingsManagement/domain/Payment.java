@@ -1,43 +1,40 @@
 package com.project.hotelBookingsManagement.domain;
 
-import com.google.gson.annotations.SerializedName;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import lombok.Getter;
-import lombok.Setter;
-
+import lombok.Data;
 import java.util.Date;
 
 @Entity
-@Getter
-@Setter
+@Data
 @Table(name = "payments")
 public class Payment {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "payment_id")
-    @SerializedName("payment_id")
+    @JsonProperty("payment_id")
     private String paymentId;
 
     @Column(name = "booking_id")
-    @SerializedName("booking_id")
+    @JsonProperty("booking_id")
     private String bookingId;
 
     @Column(name = "payment_date")
-    @SerializedName("payment_date")
+    @JsonProperty("payment_date")
     private Date paymentDate;
 
     @Column(name = "payment_amount")
-    @SerializedName("payment_amount")
+    @JsonProperty("payment_amount")
     private Double paymentAmount;
 
     @Column(name = "payment_method")
-    @SerializedName("payment_method")
+    @JsonProperty("payment_method")
     private String paymentMethod;
 
 }
