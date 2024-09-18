@@ -3,10 +3,10 @@ package com.project.hotelBookingsManagement.controller;
 import com.project.hotelBookingsManagement.domain.Customer;
 import com.project.hotelBookingsManagement.service.CustomersServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/hotel_bookings_management/customer")
@@ -26,7 +26,8 @@ public class CustomerController {
     }
 
     @PostMapping("/add")
-    public void addCustomer(@Validated @RequestBody Customer customer) {
+    public void addCustomer(@RequestBody Customer customer) {
+        customer.setCustomerId(String.valueOf(UUID.randomUUID()));
         customerService.addCustomer(customer);
     }
 
