@@ -13,21 +13,19 @@ import java.util.Optional;
 public class PaymentsServiceImpl {
 
     @Autowired
-    PaymentRepository PaymentRepository;
-    @Autowired
-    private PaymentRepository paymentRepository;
+    PaymentRepository paymentRepository;
 
     public List<Payment> getAllPayments() {
-        return PaymentRepository.findAll();
+        return paymentRepository.findAll();
     }
 
     public Payment getPaymentById(String paymentId) {
-        Optional<Payment> optionalPayment = PaymentRepository.findById(paymentId);
+        Optional<Payment> optionalPayment = paymentRepository.findById(paymentId);
         return optionalPayment.orElse(null);
     }
 
     public void addPayment(Payment payment) {
-        PaymentRepository.save(payment);
+        paymentRepository.save(payment);
     }
 
     public void updatePayment(Payment payment) {
@@ -35,11 +33,11 @@ public class PaymentsServiceImpl {
         if (configPayment != null) {
             payment = mergePayment(configPayment, payment);
         }
-        PaymentRepository.save(payment);
+        paymentRepository.save(payment);
     }
 
     public void deletePayment(String paymentId) {
-        PaymentRepository.deleteById(paymentId);
+        paymentRepository.deleteById(paymentId);
     }
 
     public Payment mergePayment(Payment configPayment, Payment newPayment) {
