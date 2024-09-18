@@ -1,5 +1,6 @@
 package com.project.hotelBookingsManagement.domain;
 
+import com.google.gson.annotations.SerializedName;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -20,18 +21,23 @@ public class Payment {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "payment_id")
+    @SerializedName("payment_id")
     private String paymentId;
 
     @Column(name = "booking_id")
+    @SerializedName("booking_id")
     private String bookingId;
 
     @Column(name = "payment_date")
+    @SerializedName("payment_date")
     private Date paymentDate;
 
     @Column(name = "payment_amount")
+    @SerializedName("payment_amount")
     private Double paymentAmount;
 
     @Column(name = "payment_method")
+    @SerializedName("payment_method")
     private String paymentMethod;
 
 }
