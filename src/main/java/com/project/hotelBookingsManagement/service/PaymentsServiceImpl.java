@@ -2,6 +2,7 @@ package com.project.hotelBookingsManagement.service;
 
 import com.project.hotelBookingsManagement.domain.Payment;
 import com.project.hotelBookingsManagement.repository.PaymentRepository;
+import io.micrometer.common.util.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,6 +14,8 @@ public class PaymentsServiceImpl {
 
     @Autowired
     PaymentRepository PaymentRepository;
+    @Autowired
+    private PaymentRepository paymentRepository;
 
     public List<Payment> getAllPayments() {
         return PaymentRepository.findAll();
@@ -27,12 +30,32 @@ public class PaymentsServiceImpl {
         PaymentRepository.save(payment);
     }
 
-    public void insertUpdatePayment(Payment payment) {
+    public void updatePayment(Payment payment) {
+        Payment configPayment = paymentRepository.findById(payment.getPaymentId()).orElse(null);
+        if (configPayment != null) {
+            payment = mergePayment(configPayment, payment);
+        }
         PaymentRepository.save(payment);
     }
 
     public void deletePayment(String paymentId) {
         PaymentRepository.deleteById(paymentId);
+    }
+
+    public Payment mergePayment(Payment configPayment, Payment newPayment) {
+        if (StringUtils.isNotEmpty(newPayment.getBookingId())) {
+            configPayment.setBookingId(newPayment.getBookingId());
+        }
+        if (newPayment.getPaymentDate() != null) {
+            configPayment.setPaymentDate(newPayment.getPaymentDate());
+        }
+        if (newPayment.getPaymentAmount() != null) {
+            configPayment.setPaymentAmount(newPayment.getPaymentAmount());
+        }
+        if (StringUtils.isNotEmpty(newPayment.getPaymentMethod())) {
+            configPayment.setPaymentId(newPayment.getPaymentMethod());
+        }
+        return configPayment;
     }
 
 }
