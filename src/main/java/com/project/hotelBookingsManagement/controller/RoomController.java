@@ -2,6 +2,7 @@ package com.project.hotelBookingsManagement.controller;
 
 import com.project.hotelBookingsManagement.domain.Room;
 import com.project.hotelBookingsManagement.service.RoomsServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,6 +12,7 @@ import java.util.List;
 @RequestMapping("/hotel_bookings_management/room")
 public class RoomController {
 
+    @Autowired
     RoomsServiceImpl roomService;
 
     @GetMapping("/list")

@@ -2,6 +2,7 @@ package com.project.hotelBookingsManagement.controller;
 
 import com.project.hotelBookingsManagement.domain.Payment;
 import com.project.hotelBookingsManagement.service.PaymentsServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,6 +12,7 @@ import java.util.List;
 @RequestMapping("/hotel_bookings_management/payment")
 public class PaymentController {
 
+    @Autowired
     PaymentsServiceImpl paymentService;
 
     @GetMapping("/list")
